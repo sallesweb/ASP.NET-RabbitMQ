@@ -58,6 +58,16 @@ var consumer = new EventingBasicConsumer(channel);
 
 ## Confirmação de mensagem
 - ***Consumer died:*** Para garantir que uma mensagem não seja perdida mesmo se o *Consumer* parar de funcionar, podemos enviar uma confirmação assim que a tarefa for concluída. Todas as mensagens não confirmadas serão reenviadas.
+
+> Desabilitando a confirmação de mensagem automática:
+```csharp
+channel.BasicConsume(
+    queue: "task_queue",
+    autoAck: false,
+    consumer: consumer);
+```
+
+> Habilitando a confirmação de mensagem manual:
 ```csharp
 channel.BasicAck(
     deliveryTag: ea.DeliveryTag,
