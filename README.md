@@ -1,7 +1,11 @@
 # ASP.NET-RabbitMQ
-Fundamentos da criação de aplicativos de mensagens usando RabbitMQ.
+O objetivo deste repositório é aplicar na prática os fundamentos da criação de aplicativos de mensages usando o RabbitMQ.  
+Para exemplificar cada cenário, será criado um projeto para cada nova funcionalidade a ser testada:
+1. [Hello World](./1.HelloWorld)
+1. [Work Queues](./2.WorkQueues)
+1. [Publish/Subscribe](./3.PublishSubscribe)
 
-> **Nota:** Para execução dos exemplos deste repositório o servidor RabbitMQ deve estar instalado.
+> **Importante:** Para execução dos exemplos deste repositório o servidor RabbitMQ deve estar instalado.
 >
 >```
 >docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
@@ -104,5 +108,3 @@ channel.BasicQos(
 ## Referências
 - [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html)
 - [Tutoriais RabbitMQ](https://www.rabbitmq.com/getstarted.html)
-    1. [Hello World](./1.HelloWorld)
-    1. [Work Queues](./2.WorkQueues)

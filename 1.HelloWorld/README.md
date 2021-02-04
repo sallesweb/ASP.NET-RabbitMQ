@@ -1,7 +1,9 @@
 # ASP.NET-HelloWorld
-Implementação simples de dois projetos baseados no template Application Console do framework .NET 5 que interage com o servidor RabbitMQ.
-- *Publisher (Send):* envia mensagem para a lista do servidor RabbitMQ;
-- *Consumer (Receive):* consome as mensagens da lista do servidor RabbitMQ.
+O objetivo deste projeto é criar aplicativos de mensagens que interagem com o servidor RabbitMQ.  
+Foram criados dois projetos baseados no template Application Console do framework .NET 5:
+- *Producer (Send):* aplicação que envia mensagens;
+- *Queue (RabbitMQ):* buffer que armazena mensagens;
+- *Consumer (Receive):* aplicação que recebe mensagens.
 
 ## Referências
 - [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html)
