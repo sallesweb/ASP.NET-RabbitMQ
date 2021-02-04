@@ -104,5 +104,5 @@ channel.BasicQos(
 ## Referências
 - [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html)
 - [Tutoriais RabbitMQ](https://www.rabbitmq.com/getstarted.html)
-    1. [Hello World](./HelloWorld)
-    1. [Work Queues](./WorkQueues)
+    1. [Hello World](./1.HelloWorld)
+    1. [Work Queues](./2.WorkQueues)
