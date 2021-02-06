@@ -91,10 +91,10 @@ channel.QueueDeclare(
 ```
 
 > Definindo as mensagens como duráveis no *Publisher*:
-````csharp
+```csharp
 var properties = channel.CreateBasicProperties();
 properties.Persistent = true;
-````
+```
 
 ## Distribuição de mensagens
 Por padrão o RabbitMQ distribuirá as mensagens igualitariamente entre os *Consumers*, para alterar esse comportamento e apenas enviar a mensagem quando o *Consumer* não estiver ocupado, podemos utilizar o método *BasicQos* fornecendo o parâmetro *prefetchCount = 1*.
@@ -103,6 +103,40 @@ channel.BasicQos(
     prefetchSize: 0,
     prefetchCount: 1,
     global: false);
+```
+
+## Exchange
+O *Producer* enviará as mensagens para uma *exchange*, seu funcionamento é simples, por um lado recebe as mensagens do *Producer* e, por outro, envia as mensagens para a fila.
+
+### Tipos de exchange
+- **Direct:**
+- **Topic:**
+- **Headers:**
+- **Fanout:** transmite (broadcast) todas as mensagens para todas as listas conhecidas por ele.
+
+> Criando uma exchange
+```csharp
+channel.ExchangeDeclare(
+    exchange: "logs",
+    type: ExchangeType.Fanout);
+```
+
+> **Producer** publicando uma mensagem no exchange
+```csharp
+channel.BasicPublish(
+    exchange: "logs",
+    routingKey: "",
+    basicProperties: null,
+    body: body);
+```
+
+> **Consumer** criando uma lista temporária
+```csharp
+var queueName = channel.QueueDeclare().QueueName;
+channel.QueueBind(
+    queue: queueName,
+    exchange: "logs",
+    routingKey: "");
 ```
 
 ## Referências
