@@ -1,4 +1,4 @@
-# ASP.NET-WorkQueues
+# ASP.NET-PublishSubscribe
 O objetivo deste projeto é criar aplicativos de mensagens para distribuição da mesma mensagem para vários *Consumers* (padrão Publish/Subscribe) que interagem com o servidor RabbitMQ.  
 Foram criados dois projetos baseados no template Application Console do framework .NET 5:
 
@@ -10,11 +10,8 @@ Foram criados dois projetos baseados no template Application Console do framewor
 ## Exchange
 O *Producer* enviará as mensagens para uma *exchange*, seu funcionamento é simples, por um lado recebe as mensagens do *Producer* e, por outro, envia as mensagens para a fila.
 
-### Tipos de exchange
-- **Direct:**
-- **Topic:**
-- **Headers:**
-- **Fanout:** transmite (broadcast) todas as mensagens para todas as listas conhecidas por ele.
+### Tipo de exchange: **Fanout**
+Transmite (broadcast) todas as mensagens para todas as listas conhecidas por ele.
 
 ## Referências
 - [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html)

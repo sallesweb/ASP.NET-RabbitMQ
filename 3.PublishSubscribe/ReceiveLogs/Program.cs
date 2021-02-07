@@ -1,4 +1,4 @@
-﻿namespace ReceiveLog
+﻿namespace ReceiveLogs
 {
     using System;
     using System.Text;
