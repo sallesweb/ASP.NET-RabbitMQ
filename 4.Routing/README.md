@@ -15,4 +15,4 @@ Transmite a mensagem para as listas cuja *binding key* seja exatamente igual à 
 
 ## Referências
 - [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html)
-- [Publish/Subscribe](https://www.rabbitmq.com/tutorials/tutorial-three-dotnet.html)
+- [Routing](https://www.rabbitmq.com/tutorials/tutorial-four-dotnet.html)
