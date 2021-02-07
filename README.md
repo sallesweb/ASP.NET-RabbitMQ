@@ -4,6 +4,7 @@ Para exemplificar cada cenário, será criado um projeto para cada nova funciona
 1. [Hello World](./1.HelloWorld)
 1. [Work Queues](./2.WorkQueues)
 1. [Publish/Subscribe](./3.PublishSubscribe)
+1. [Routing](./4.Routing)
 
 > **Importante:** Para execução dos exemplos deste repositório o servidor RabbitMQ deve estar instalado.
 >
@@ -108,11 +109,8 @@ channel.BasicQos(
 ## Exchange
 O *Producer* enviará as mensagens para uma *exchange*, seu funcionamento é simples, por um lado recebe as mensagens do *Producer* e, por outro, envia as mensagens para a fila.
 
-### Tipos de exchange
-- **Direct:**
-- **Topic:**
-- **Headers:**
-- **Fanout:** transmite (broadcast) todas as mensagens para todas as listas conhecidas por ele.
+### Tipo de exchange: **Fanout**
+Transmite (broadcast) todas as mensagens para todas as listas conhecidas por ele.
 
 > Criando uma exchange
 ```csharp
@@ -137,6 +135,34 @@ channel.QueueBind(
     queue: queueName,
     exchange: "logs",
     routingKey: "");
+```
+
+### Tipos de exchange: **Direct**
+Transmite as mensagens para as listas cuja *binding key* seja exatamente igual à *routing key* da mensagem.
+
+> Criando uma exchange
+```csharp
+channel.ExchangeDeclare(
+    exchange: "direct_logs",
+    type: ExchangeType.Direct);
+```
+
+> **Producer:** definindo a *routing key*
+```csharp
+channel.BasicPublish(
+    exchange: "direct_logs",
+    routingKey: "critical",
+    basicProperties: null,
+    body: body);
+```
+
+> **Consumer:** definindo o *binding key*
+```csharp
+var queueName = channel.QueueDeclare().QueueName;
+channel.QueueBind(
+    queue: queueName,
+    exchange: "direct_logs",
+    routingKey: "critical");
 ```
 
 ## Referências
