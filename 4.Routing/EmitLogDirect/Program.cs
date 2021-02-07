@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using RabbitMQ.Client;
-
-namespace EmitLogDirect
+﻿namespace EmitLogDirect
 {
+    using System;
+    using System.Linq;
+    using System.Text;
+    using RabbitMQ.Client;
+
     class Program
     {
         static void Main(string[] args)

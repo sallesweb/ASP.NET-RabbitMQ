@@ -1,10 +1,10 @@
-﻿using System;
-using System.Text;
-using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
-
-namespace ReceiveLogsDirect
+﻿namespace ReceiveLogsDirect
 {
+    using System;
+    using System.Text;
+    using RabbitMQ.Client;
+    using RabbitMQ.Client.Events;
+
     class Program
     {
         static void Main(string[] args)
