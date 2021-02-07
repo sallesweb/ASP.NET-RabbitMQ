@@ -5,6 +5,7 @@ Para exemplificar cada cenário, será criado um projeto para cada nova funciona
 1. [Work Queues](./2.WorkQueues)
 1. [Publish/Subscribe](./3.PublishSubscribe)
 1. [Routing](./4.Routing)
+1. [Topics](./5.Topics)
 
 > **Importante:** Para execução dos exemplos deste repositório o servidor RabbitMQ deve estar instalado.
 >
@@ -163,6 +164,36 @@ channel.QueueBind(
     queue: queueName,
     exchange: "direct_logs",
     routingKey: "critical");
+```
+
+### Tipos de exchange: **Topic**
+Transmite uma mensagem com um *routing key* específico para ser entregue com base em tópicos.
+
+> Criando uma exchange
+```csharp
+channel.ExchangeDeclare(
+    exchange: "topic_logs",
+    type: ExchangeType.Topic);
+```
+
+> **Producer:** definindo a *routing key*
+```csharp
+var bindingKey = "kern.critical" "A critical kernel error";
+channel.BasicPublish(
+    exchange: "topic_logs",
+    routingKey: bindingKey,
+    basicProperties: null,
+    body: body);
+```
+
+> **Consumer:** definindo o *binding key*
+```csharp
+var queueName = channel.QueueDeclare().QueueName;
+var bindingKey = "kern.*";
+channel.QueueBind(
+    queue: queueName,
+    exchange: "topic_logs",
+    routingKey: bindingKey);
 ```
 
 ## Referências
