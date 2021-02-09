@@ -1,7 +1,6 @@
 # ASP.NET-RabbitMQ
 O objetivo deste repositório é aplicar na prática os fundamentos da criação de aplicativos de mensages usando o RabbitMQ.  
 Para exemplificar cada cenário, será criado um projeto para cada nova funcionalidade a ser testada:
-1. [RabbitMQ Installation](./0.Installation)
 1. [Hello World](./1.HelloWorld)
 1. [Work Queues](./2.WorkQueues)
 1. [Publish/Subscribe](./3.PublishSubscribe)
